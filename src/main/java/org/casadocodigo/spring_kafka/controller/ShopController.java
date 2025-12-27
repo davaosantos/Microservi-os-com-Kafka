@@ -26,6 +26,7 @@ public class ShopController {
     public ShopDTO saveShop(@RequestBody ShopDTO shopDTO) {
         shopDTO.setIdentifier(UUID.randomUUID().toString());
         shopDTO.setDateShop(LocalDate.now());
+        shopDTO.setStatus("PENDING");
         Shop shop = Shop.convert(shopDTO);
         for (ShopItem shopItem : shop.getItems()) {
             shopItem.setShop(shop);
